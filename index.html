@@ -42,14 +42,14 @@ body {
 .card {
   position: relative; display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 34px;
   padding: 28px; border-radius: 32px; overflow: hidden; isolation: isolate;
-  border: 1px solid rgba(239,255,243,.52);
-  background: linear-gradient(128deg, rgba(219,255,228,.12), rgba(14,55,31,.14) 46%, rgba(195,242,207,.07));
-  box-shadow: 0 32px 100px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.48), inset 0 0 42px rgba(204,255,218,.09), inset 0 -24px 55px rgba(17,92,48,.10);
-  -webkit-backdrop-filter: blur(18px) saturate(175%) brightness(1.06); backdrop-filter: blur(18px) saturate(175%) brightness(1.06);
+  border: 1px solid rgba(225,247,230,.42);
+  background: linear-gradient(128deg, rgba(6,28,17,.20), rgba(4,19,12,.28) 46%, rgba(5,25,15,.18));
+  box-shadow: 0 32px 100px rgba(0,0,0,.48), inset 0 1px 0 rgba(255,255,255,.30), inset 0 0 42px rgba(178,226,190,.055), inset 0 -24px 55px rgba(4,35,18,.16);
+  -webkit-backdrop-filter: blur(10px) saturate(140%) brightness(.72); backdrop-filter: blur(10px) saturate(140%) brightness(.72);
   transition: transform .22s ease, border-color .3s ease;
 }
 .card::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; border-radius:inherit;
-  background: radial-gradient(ellipse at 16% 0%,rgba(255,255,255,.15),transparent 38%), linear-gradient(115deg,rgba(255,255,255,.09),transparent 25%,transparent 67%,rgba(189,245,202,.08)); }
+  background: radial-gradient(ellipse at 16% 0%,rgba(255,255,255,.11),transparent 38%), linear-gradient(115deg,rgba(255,255,255,.065),transparent 25%,transparent 67%,rgba(189,245,202,.06)); }
 .photo-column, .content { position:relative; z-index:1; }
 .card::after { content:""; position:absolute; z-index:3; top:-60%; left:-70%; width:32%; height:220%; transform:rotate(22deg);
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent); animation: sheen 11s ease-in-out infinite; pointer-events:none; }
@@ -60,6 +60,8 @@ body {
 .photo-frame { display:block; width:100%; height:100%; min-height:0; }
 .photo { width:100%; height:100%; min-height:0; object-fit:cover; object-position:center 28%; display:block; border-radius:18px; filter:saturate(.94) contrast(1.02); }
 .photo-contact { display:grid; gap:3px; padding:0 5px 2px; color:#fff; font-size:13px; font-weight:550; line-height:1.8; overflow-wrap:anywhere; }
+.contact-details { display:grid; gap:3px; min-width:0; }
+.brand-mobile { display:none; }
 .photo-contact a { color:inherit; text-decoration:none; }
 .photo-contact a:hover { color:#fff; text-decoration:underline; }
 .content { min-width:0; display:flex; flex-direction:column; justify-content:center; padding:7px 3px; }
@@ -103,7 +105,7 @@ h1 { margin:0; font-size:clamp(28px,4vw,42px); line-height:1.02; letter-spacing:
   .photo-wrap { flex:none; min-height:0; height:min(58vh,360px); }
   .photo { min-height:0; height:100%; object-position:center 27%; }
   .content { padding:0 3px 4px; }
-  .topline { margin-bottom:19px; }
+  .topline { display:none; }
   .brand { width:145px; max-height:54px; }
   .identity { gap:12px; } .monogram { width:48px; height:48px; }
   h1 { font-size:clamp(27px,8vw,38px); }
@@ -111,7 +113,8 @@ h1 { margin:0; font-size:clamp(28px,4vw,42px); line-height:1.02; letter-spacing:
   .name-compact { display:block; }
   .links { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .bottom { align-items:flex-start; }
-  .photo-contact { font-size:12px; }
+  .photo-contact { display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:12px; }
+  .brand-mobile { display:block; flex:0 0 clamp(92px,27vw,124px); width:clamp(92px,27vw,124px); max-height:48px; object-fit:contain; object-position:right center; filter:drop-shadow(0 2px 8px rgba(0,0,0,.22)); }
 }
 @media(max-width:390px) {
   .links { grid-template-columns:1fr; }
@@ -128,7 +131,7 @@ h1 { margin:0; font-size:clamp(28px,4vw,42px); line-height:1.02; letter-spacing:
 <canvas id="dust" aria-hidden="true"></canvas>
 <main class="wrap">
   <article class="card" id="card">
-    <div class="photo-column"><div class="photo-wrap"><img class="photo" src="assets/perfil/foto-perfil-benjamin.webp" alt="Retrato de Benjamín Rojas Barahona"></div><div class="photo-contact"><a href="mailto:benrojasbarahona@gmail.com">benrojasbarahona@gmail.com</a><a href="tel:+56967262087">+56 9 6726 2087</a></div></div>
+    <div class="photo-column"><div class="photo-wrap"><img class="photo" src="assets/perfil/foto-perfil-benjamin.webp" alt="Retrato de Benjamín Rojas Barahona"></div><div class="photo-contact"><div class="contact-details"><a href="mailto:benrojasbarahona@gmail.com">benrojasbarahona@gmail.com</a><a href="tel:+56967262087">+56 9 6726 2087</a></div><img class="brand-mobile" src="assets/logos/marca-benjamin.webp" alt="Benjamín Rojas · Software y soluciones digitales"></div></div>
     <section class="content">
       <div class="topline">
         <img class="brand" src="assets/logos/marca-benjamin.webp" alt="Benjamin Rojas · Software · Soluciones digitales">
